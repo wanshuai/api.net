@@ -3,7 +3,7 @@
 	require('vendor/autoload.php');
 	
 	// 解决跨域
-	header('Access-Control-Allow-Methods:POST');
+	header('Access-Control-Allow-Methods:OPTIONS, GET, POST');
 	header('Access-Control-Allow-Headers: *');
 	header("Access-Control-Allow-Credentials:true");
 	header('Access-Control-Allow-Origin: *');
