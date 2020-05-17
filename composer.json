@@ -1,0 +1,19 @@
+{
+    "require": {
+        "noahbuscher/macaw": "dev-master",
+        "monolog/monolog": "^1.25",
+        "catfan/medoo": "^1.7",
+        "zoujingli/wechat-php-sdk": "^1.3"
+    },
+    "autoload": {
+    	"psr-4": {
+            "vendor\\":"app/common/vendor",
+    		"controllers\\":"app/controllers",
+            "models\\":"app/models"
+    	},
+    	"files": [
+            "app/common/defines.php",
+    		"app/common/helpers.php"
+    	]
+    }
+}
