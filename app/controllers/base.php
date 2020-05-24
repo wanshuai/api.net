@@ -11,44 +11,28 @@
 
 		function __construct() {
 			$type = 1; //是否写cookie 1写并且新增 2不写 3写但是只修改不新增
-			$openid = "";
-			$code = $_COOKIE["code"] ?: $_GET["code"];
-			if(empty($code)) {
-				$this->goto_wechat();
-			}else{
-				if($_GET['code']) {
-					//判断
-					$state = $_GET["state"];
-					if($state !== WECHAT_STATE) $this->error();
-					//获取openid
-					$oauth = & load_wechat("oauth");
-					$json = $oauth->getOauthAccessToken();
-					if($json === false) $this->error();
+			$openid = false;
 
-					$data = json_decode($json, true);
-					$openid = $data['openid'];
-				}
-				if($_COOKIE['code']) {
-					$logon = new logon();
-					$data = $logon->get_openid($_COOKIE['code']);
-					$flag = false;
-					if($data === false){
-						$this->goto_wechat();
-					}else{
-						list($openid, $flag) = $data;
-					}
-					$type = 2 + $flag ? 1 : 0;
-				}
+			$logon = new logon();
+			if(isset($_COOKIE["code"])) {
+				$openid = $logon->get_openid_by_code($_COOKIE['code'], $type);
 			}
-				
+			
+			// if($openid === false && isset($_POST["salt"])) {
+			if($openid === false) {
+				$account = $_POST["account"];
+				$pwd = $_POST["pwd"];
+				$salt = $_POST["salt"];
+				$openid = $logon->get_openid_by_pwd($account, $pwd, $salt);
+			}
+
+			if($openid === false) {
+				$this->error(100, "请登录");
+			}
+				// echo $type;
 			$user = new user();
 			$this->user = $user->get_user($openid, $type);
 			if(empty($this->user)) $this->error();
-		}
-
-		private function goto_wechat(){
-			$oauth = & load_wechat("oauth");
-			redirect($oauth->getOauthRedirect(request_uri(), WECHAT_STATE));
 		}
 
 		//返回成功信息

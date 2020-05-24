@@ -14,22 +14,13 @@
 
             $data = $this->get("user", "*", ["openid" => $openid]);
 
-            if(empty($data)) {
-                $data = ["openid"=>$openid,"ctime"=>time()];
-                $rst = $this->insert("user", $data);
-                if(empty($rst)) return false;
-
-                $data["id"] = $this->id();
-                $type = 2;
-            }
-
             $logon = new logon();
-            if($type == 2){
+            if($type == 1){
                 $code = $logon->add($data["id"]);
-                setcookie("code", $code, time()+(7*24*60*60), '/magic', 'magic.gfuzy.com');
+                setcookie("code", $code, time()+(7*24*60*60), '/', THIS_URL);
             }else if($type == 3){
                 $code = $logon->save($data["id"]);
-                setcookie("code", $code, time()+(7*24*60*60), '/magic', 'magic.gfuzy.com');
+                setcookie("code", $code, time()+(7*24*60*60), '/', THIS_URL);
             }
             
             return $data;

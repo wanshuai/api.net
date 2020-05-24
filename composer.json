@@ -2,8 +2,7 @@
     "require": {
         "noahbuscher/macaw": "dev-master",
         "monolog/monolog": "^1.25",
-        "catfan/medoo": "^1.7",
-        "zoujingli/wechat-php-sdk": "^1.3"
+        "catfan/medoo": "^1.7"
     },
     "autoload": {
     	"psr-4": {

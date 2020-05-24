@@ -30,7 +30,7 @@
 
         public function check($user_id, $data){
             if(empty($data)) return false;
-            $oldData = $this->get("magic", ["user_id"=>$user_id]);
+            $oldData = $this->get("magic", '*', ["user_id"=>$user_id]);
             $newDate = [
                 "user_id"   => $user_id,
                 "next"      => $data['next'],

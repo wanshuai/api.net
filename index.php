@@ -3,10 +3,10 @@
 	require('vendor/autoload.php');
 	
 	// 解决跨域
-	header('Access-Control-Allow-Methods:OPTIONS, GET, POST');
+	header('Access-Control-Allow-Methods: POST');
 	header('Access-Control-Allow-Headers: *');
 	header("Access-Control-Allow-Credentials:true");
-	header('Access-Control-Allow-Origin: *');
+	header('Access-Control-Allow-Origin: http://localhost:4200');
 	header('Access-Control-Max-Age:86400'); // 允许访问的有效期
 
 	use NoahBuscher\Macaw\Macaw;

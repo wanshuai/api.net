@@ -24,10 +24,6 @@ class ComposerStaticInit43162180e3835728658ec6655ac2e3a1
         array (
             'controllers\\' => 12,
         ),
-        'W' => 
-        array (
-            'Wechat\\' => 7,
-        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -55,10 +51,6 @@ class ComposerStaticInit43162180e3835728658ec6655ac2e3a1
         'controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/controllers',
-        ),
-        'Wechat\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/zoujingli/wechat-php-sdk/Wechat',
         ),
         'Psr\\Log\\' => 
         array (

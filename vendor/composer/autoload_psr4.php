@@ -9,7 +9,6 @@ return array(
     'vendor\\' => array($baseDir . '/app/common/vendor'),
     'models\\' => array($baseDir . '/app/models'),
     'controllers\\' => array($baseDir . '/app/controllers'),
-    'Wechat\\' => array($vendorDir . '/zoujingli/wechat-php-sdk/Wechat'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'NoahBuscher\\Macaw\\' => array($vendorDir . '/noahbuscher/macaw'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
