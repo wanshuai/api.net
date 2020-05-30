@@ -33,7 +33,7 @@
             $oldData = $this->get("magic", '*', ["user_id"=>$user_id]);
             $newDate = [
                 "user_id"   => $user_id,
-                "next"      => $data['next'],
+                "next"      => strtotime($data['next']),
                 "loop"      => $data['loop'],
                 "used"      => $data['used'],
                 "del"       => 1,
